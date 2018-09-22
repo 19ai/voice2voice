@@ -26,7 +26,7 @@ def _resample(x, time_size):
 
 def _reverse(x):
     idx = [i for i in range(x.size(0)-1, -1, -1)]
-    idx = torch.LongTensor(idx)
+    idx = torch.LongTensor(idx).to(device)
     inverted_tensor = x.index_select(0, idx)
     return inverted_tensor.contiguous()
 
